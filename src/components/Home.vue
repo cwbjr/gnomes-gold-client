@@ -1,66 +1,70 @@
 <template>
   <div class="home">
-    <div id="title" class="slide header">
-      <h2>{{ tagline }}</h2>
-      <h1>{{ title }}</h1>
-    </div>
-    <div id="slide1" class="slide">
-      <div class="title">
-        <h1>Slide 1</h1>
-        <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam.
-          Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
-          perpetua cum at. Id viris docendi denique vim.</p>
+    <div v-for="image in images" :key="image.id">
+      <div id="title" class="slide header">
+        <h2>{{ tagline }}</h2>
+        <h1>{{ title }}</h1>
       </div>
-    </div>
-    <div id="slide2" class="slide">
-      <div class="title2">
-        <h1>Slide 2</h1>
-        <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam.
-          Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
-          perpetua cum at. Id viris docendi denique vim.</p>
-      </div>
-      <img :src="'../../static/img/trap.png/'">
-      <img :src="'../../static/img/pot-gold-well.png/'">
-    </div>
-    <div id="slide3" class="slide">
-      <div class="title3">
-        <h1>Slide 3</h1>
-        <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam.
-          Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
-          perpetua cum at. Id viris docendi denique vim.</p>
-      </div>
-        <div class="phone">
-        <img :src="'../../static/img/iphone3.png/'" class="back-img">
-        <div>
-          <iframe src="https://player.vimeo.com/video/266728295" style="position:absolute;top:0;left:0;width:40%;height:100%;"
-            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <div id="slide1" class="slide">
+        <div class="title">
+          <h1>Slide 1</h1>
+          <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam.
+            Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
+            perpetua cum at. Id viris docendi denique vim.</p>
         </div>
       </div>
-    </div>
-    <div id="slide4" class="slide header">
-      <h1>The End</h1>
-      <footer>
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-          <div class="card-header">Story Board</div>
-          <div class="card-body">
-            <h5 class="card-title">SIGN-UP NOW</h5>
-            <form>
-              <div class="COL">
-                <label for="first_name">Your Name</label>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="First name" id="first_name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+      <div id="slide2" class="slide">
+        <div class="title2">
+          <h1>Slide 2</h1>
+          <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam.
+            Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
+            perpetua cum at. Id viris docendi denique vim.</p>
+        </div>
+        <!-- <img :src="'../../static/img/trap.png/'">
+        <img :src="'../../static/img/pot-gold-well.png/'"> -->
+        <img :src="image.trap">
+        <img :src="image.gold">
+      </div>
+      <div id="slide3" class="slide">
+        <div class="title3">
+          <h1>Slide 3</h1>
+          <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam.
+            Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
+            perpetua cum at. Id viris docendi denique vim.</p>
+        </div>
+          <div class="phone">
+          <img :src="'../../static/img/iphone3.png/'" class="back-img">
+          <div>
+            <iframe src="https://player.vimeo.com/video/266728295" style="position:absolute;top:0;left:0;width:40%;height:100%;"
+              frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
         </div>
-      </footer>
+      </div>
+      <div id="slide4" class="slide header">
+        <h1>The End</h1>
+        <footer>
+          <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Story Board</div>
+            <div class="card-body">
+              <h5 class="card-title">SIGN-UP NOW</h5>
+              <form>
+                <div class="COL">
+                  <label for="first_name">Your Name</label>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" id="first_name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   </div>
 </template>
@@ -71,7 +75,14 @@ export default {
   data () {
     return {
       tagline: '2D Game built with Unity',
-      title: 'Gnome\'s Gold'
+      title: 'Gnome\'s Gold',
+      images: [
+        {
+          id: 1,
+          trap: '../../static/img/trap.png/',
+          gold: '../../static/img/pot-gold-well.png/'
+        }
+      ]
     }
   },
   mounted: {}
