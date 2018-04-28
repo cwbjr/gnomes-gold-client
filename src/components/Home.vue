@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <div id="title" class="slide header">
-      <h1>Gnome's Gold</h1>
+      <h2>{{ tagline }}</h2>
+      <h1>{{ title }}</h1>
     </div>
     <div id="slide1" class="slide">
       <div class="title">
@@ -35,10 +36,31 @@
             frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
-      <!-- <img :src="'../../static/img/iphone3.png/'" class="back-img"> -->
     </div>
     <div id="slide4" class="slide header">
       <h1>The End</h1>
+      <footer>
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+          <div class="card-header">Story Board</div>
+          <div class="card-body">
+            <h5 class="card-title">SIGN-UP NOW</h5>
+            <form>
+              <div class="COL">
+                <label for="first_name">Your Name</label>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First name" id="first_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -48,7 +70,8 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      tagline: '2D Game built with Unity',
+      title: 'Gnome\'s Gold'
     }
   },
   mounted: {}
@@ -59,13 +82,19 @@ export default {
   iframe {
     margin-left: 29%;
     margin-top: 14.4%;
-    /* width: 200px;
-    height: 150px; */
     z-index: 2;
   }
-  /* @import url(https://fonts.googleapis.com/css?family=Nunito); */
+
+  #title h1 {
+    font-size: 550%;
+  }
+
   h1 {
     font-size: 250%;
+  }
+
+  .header {
+    width: 500px;
   }
 
   p {
@@ -122,7 +151,6 @@ export default {
   }
 
   .title {
-    /* width: 50%; */
     margin-top: 10%;
     padding: 5%;
     border-radius: 5px;
@@ -131,7 +159,6 @@ export default {
   }
 
   .title3 {
-    /* width: 50%; */
     margin-top: -9%;
     padding: 5%;
     border-radius: 5px;
@@ -187,27 +214,19 @@ export default {
   #slide2 {
     background-image: url("../../static/img/well-wall-1.jpg/");
     z-index: 2;
-    /* margin-top: 4vh; */
   }
 
   #slide3 {
-    /* background-image: url("../../static/img/iphone3.png/"); */
     transform: translateZ(-1px) scale(2);
   }
 
   #slide4 {
-    /* background: #222; */
-    background-image: url("../../static/img/ground.png/"), url("../../static/img/ground.png/"), url("../../static/img/well-rock.png/");
-    background-position: center bottom, center top, center top;
-    background-repeat:no-repeat, no-repeat, no-repeat;
-    /* background-size: cover; */
+    background-image: url("../../static/img/ground.png/"), url("../../static/img/well-rock.png/");
+    background-position: center bottom, center top;
+    background-repeat:no-repeat, no-repeat;
   }
 
 @media (max-width: 740px) {
-  /* #slide2 {
-    display:grid;
-  } */
-
   img, .phone {
     display:none;
   }
@@ -218,6 +237,10 @@ export default {
 
   #slide4 {
     padding-bottom: 375px;
+  }
+
+  #title h1 {
+    font-size: 250%;
   }
 }
 </style>
