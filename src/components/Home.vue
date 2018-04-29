@@ -81,7 +81,6 @@ export default {
       title: 'Gnome\'s Gold',
       // dbURL: 'https://gnomes-gold.herokuapp.com/users/',
       dbURL: 'http://localhost:3000/user/',
-      user: {},
       first_name: '',
       last_name: '',
       email: '',
@@ -109,9 +108,9 @@ export default {
       })
         .then(res => res.json())
         .then(() => {
-          this.first_name: '',
-          this.last_name: '',
-          this.email: ''
+          this.first_name = ''
+          this.last_name = ''
+          this.email = ''
         })
     }
   }
