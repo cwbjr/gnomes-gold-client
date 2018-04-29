@@ -20,8 +20,8 @@
             Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores
             perpetua cum at. Id viris docendi denique vim.</p>
         </div>
-        <!-- <img :src="'../../static/img/trap.png/'">
-        <img :src="'../../static/img/pot-gold-well.png/'"> -->
+        <!-- <img :src="'./static/img/trap.png/'"> -->
+        <!-- <img :src="'../../static/img/pot-gold-well.png/'"> -->
         <img :src="image.trap">
         <img :src="image.gold">
       </div>
@@ -47,20 +47,23 @@
             <div class="card-header">Story Board</div>
             <div class="card-body">
               <h5 class="card-title">SIGN-UP NOW</h5>
-              <form>
+
+              <form v-on:submit.prevent='submitForm'>
                 <div class="COL">
                   <label for="first_name">Your Name</label>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" id="first_name">
+                  <input type="text" name='first_name' v-model='first_name'
+                    class="form-control" placeholder="First name" id="first_name">
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name='email' v-model='email'
+                      class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
+
             </div>
           </div>
         </footer>
@@ -76,6 +79,12 @@ export default {
     return {
       tagline: '2D Game built with Unity',
       title: 'Gnome\'s Gold',
+      // dbURL: 'https://gnomes-gold.herokuapp.com/users/',
+      dbURL: 'http://localhost:3000/user/',
+      user: {},
+      first_name: '',
+      last_name: '',
+      email: '',
       images: [
         {
           id: 1,
@@ -85,7 +94,27 @@ export default {
       ]
     }
   },
-  mounted: {}
+  methods: {
+    submitForm () {
+      fetch(this.dbURL, {
+        method: 'POST',
+        headers: new Headers({
+          'content-type': 'application/json'
+        }),
+        body: JSON.stringify({
+          first_name: this.first_name,
+          last_name: '',
+          email: this.email
+        })
+      })
+        .then(res => res.json())
+        .then(() => {
+          this.first_name: '',
+          this.last_name: '',
+          this.email: ''
+        })
+    }
+  }
 }
 </script>
 
