@@ -79,8 +79,8 @@ export default {
     return {
       tagline: '2D Game built with Unity',
       title: 'Gnome\'s Gold',
-      // dbURL: 'https://gnomes-gold.herokuapp.com/users/',
-      dbURL: 'http://localhost:3000/user/',
+      dbURL: 'https://gnomes-gold.herokuapp.com/users/',
+      // dbURL: 'http://localhost:3000/user/',
       first_name: '',
       last_name: '',
       email: '',
