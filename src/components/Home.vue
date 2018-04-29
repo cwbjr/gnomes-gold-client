@@ -51,15 +51,15 @@
               <form v-on:submit.prevent='submitForm'>
                 <div class="COL">
                   <label for="first_name">Your Name</label>
-                  <input type="text" name='first_name' v-model='first_name'
+                  <input type="text" required name='first_name' v-model='first_name'
                     class="form-control" placeholder="First name" id="first_name">
                   <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" name='email' v-model='email'
+                    <input type="email" required name='email' v-model='email'
                       class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <p id="submitMsg"><span class="text-info">{{successText}}</span></p>
                   </div>
-                  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -79,11 +79,12 @@ export default {
     return {
       tagline: '2D Game built with Unity',
       title: 'Gnome\'s Gold',
-      dbURL: 'https://gnomes-gold.herokuapp.com/user/',
-      // dbURL: 'http://localhost:3000/user/',
+      // dbURL: 'https://gnomes-gold.herokuapp.com/user/',
+      dbURL: 'http://localhost:3000/user/',
       first_name: '',
       last_name: '',
       email: '',
+      successText: '',
       images: [
         {
           id: 1,
@@ -107,11 +108,18 @@ export default {
         })
       })
         .then(res => res.json())
+        .then(() => this.confirmSubmit())
         .then(() => {
           this.first_name = ''
           this.last_name = ''
           this.email = ''
         })
+    },
+    confirmSubmit () {
+      this.successText = 'Information sent successfully.'
+      setTimeout(() => {
+        this.successText = ''
+      }, 2000)
     }
   }
 }
@@ -280,6 +288,9 @@ export default {
 
   #title h1 {
     font-size: 250%;
+  }
+  span {
+    color: lightorange;
   }
 }
 </style>
