@@ -1,0 +1,7 @@
+{
+  "imgLoc": [{
+    "iphone": "../../static/img/iphone3.png",
+    "trap": "../../static/img/trap.png",
+    "gold": "../../static/img/pot-gold-well.png"
+  }]
+}

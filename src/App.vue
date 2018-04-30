@@ -1,13 +1,31 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view/>
+    <router-view :image="imageList"/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      imgURL: '../../static/img_url.json',
+      imageList: {}
+    }
+  },
+  mounted () {
+    this.getImageData()
+  },
+  methods: {
+    getImageData () {
+      fetch(this.imgURL)
+        .then(res => res.json())
+        .then((data) => {
+          this.imageList = data.imgLoc[0]
+          console.log(this.imageList.iphone)
+        })
+    }
+  }
 }
 </script>
 

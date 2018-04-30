@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div v-for="image in images" :key="image.id">
+    <div>
       <div id="title" class="slide header">
         <h2>{{ tagline }}</h2>
         <h1>{{ title }}</h1>
@@ -33,7 +33,7 @@
             perpetua cum at. Id viris docendi denique vim.</p>
         </div>
           <div class="phone">
-          <img :src="'../../static/img/iphone3.png/'" class="back-img">
+          <img :src="image.iphone" class="back-img">
           <div>
             <iframe src="https://player.vimeo.com/video/266728295" style="position:absolute;top:0;left:0;width:40%;height:100%;"
               frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -75,6 +75,7 @@
 <script>
 export default {
   name: 'Home',
+  props: ['image'],
   data () {
     return {
       tagline: '2D Game built with Unity',
@@ -84,14 +85,7 @@ export default {
       first_name: '',
       last_name: '',
       email: '',
-      successText: '',
-      images: [
-        {
-          id: 1,
-          trap: '../../static/img/trap.png/',
-          gold: '../../static/img/pot-gold-well.png/'
-        }
-      ]
+      successText: ''
     }
   },
   methods: {
